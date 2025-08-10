@@ -6,4 +6,4 @@ RUN npm install
 RUN npm run build
 EXPOSE 8000
 
-ENTRYPOINT ["sh", "-c", "npm run migrate && npm run seed && npm run start"]
+ENTRYPOINT ["sh", "-c", "npm run migrate && npm run start"]
