@@ -39,7 +39,6 @@ npm install
 Create .env file in the root with these variables:
 ```bash
 PORT=8000
-```
 # PostgreSQL
 PRODUCTION_PG_USER=your_pg_user
 PRODUCTION_PG_PASSWORD=your_pg_password
@@ -59,19 +58,17 @@ EMAIL_PASS=your_email_app_password
 CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
 CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+```
 Run migrations:
-
-bash
-Copy
-Edit
+```bash
 npm run migrate
+```
 Start the app (development mode):
-
 ```bash
 npm run dev
 ```
 Access API on:
-http://localhost:8000/api/v1
+http://localhost:8000/api/v1 
 
 Running with Docker
 ```bash
@@ -95,13 +92,19 @@ Path	Method	Description	Auth Required	Roles Allowed
 /api/v1/applications/:id/status	PUT	Update application status (Interview/Hired/etc.)	Yes	company
 ```
 
-API Documentation (Swagger)
-You can explore the full API documentation and test the endpoints interactively here:
+### API Documentation (Swagger)
+You can explore the full API documentation and test the endpoints interactively at:
 
-https://jobhub-b68s.onrender.com/api-docs
+    Locally: http://localhost:8000/api-docs
+    Deployed: https://jobhub-b68s.onrender.com/api-docs
 
-Notes
-Make sure to set all environment variables correctly before running the application.
-Docker is optional but recommended for easier setup and deployment.
-Email service uses Gmail SMTP, so enable "App Passwords" if you use 2FA.
-Cloudinary is used for secure and scalable resume uploads.
+### Deployment
+The application is deployed and running live at:
+
+    https://jobhub-b68s.onrender.com/
+
+### Notes
+    Make sure to set all environment variables correctly before running the application.
+    Docker is optional but recommended for easier setup and deployment.
+    Email service uses Gmail SMTP, so enable "App Passwords" if you use 2FA.
+    Cloudinary is used for secure and scalable resume uploads.
