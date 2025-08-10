@@ -4,6 +4,8 @@ import cookieParser from "cookie-parser";
 import path from "path";
 import dotenv from "dotenv";
 import authRouter from "./routes/auth.routes"
+import jobRouter from "./routes/job.routes"
+import applicationRouter from "./routes/application.routes"
 
 dotenv.config({
     path: path.join(__dirname, "../.env")
@@ -17,6 +19,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/jobs", jobRouter)
+app.use("/api/v1/applications", applicationRouter)
 
 
 app.get("/", (req: Request, res: Response) => {
