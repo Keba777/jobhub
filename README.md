@@ -1,55 +1,45 @@
-JobHub
-Overview
+# JobHub
+
+## Overview
 JobHub is a job application platform backend built with Express, Sequelize, and TypeScript. It supports user authentication, job posting, applications with resume uploads, and email notifications.
 
-Tech Stack
-Node.js + Express
+---
 
-TypeScript
+## Tech Stack
+- Node.js + Express  
+- TypeScript  
+- PostgreSQL with Sequelize ORM  
+- JWT authentication  
+- Multer + Cloudinary for file uploads  
+- Nodemailer for email  
+- Docker + Docker Compose for containerization  
 
-PostgreSQL with Sequelize ORM
+---
 
-JWT authentication
+## Setup Instructions
 
-Multer + Cloudinary for file uploads
+### Prerequisites
+- Node.js >= 16  
+- PostgreSQL database  
+- Docker & Docker Compose (optional but recommended)  
+- Cloudinary account for file storage  
+- Gmail or SMTP email credentials  
 
-Nodemailer for email
+### Installation
 
-Docker + Docker Compose for containerization
-
-Setup Instructions
-Prerequisites
-Node.js >= 16
-
-PostgreSQL database
-
-Docker & Docker Compose (optional but recommended)
-
-Cloudinary account for file storage
-
-Gmail or SMTP email credentials
-
-Installation
 Clone the repo:
-
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/eskalate.git
-cd eskalate
+```bash
+git clone https://github.com/jobhub.git
+cd jobhub
+```
 Install dependencies:
-
-bash
-Copy
-Edit
+```bash
 npm install
+```
 Create .env file in the root with these variables:
-
-env
-Copy
-Edit
+```bash
 PORT=8000
-
+```
 # PostgreSQL
 PRODUCTION_PG_USER=your_pg_user
 PRODUCTION_PG_PASSWORD=your_pg_password
@@ -77,18 +67,18 @@ Edit
 npm run migrate
 Start the app (development mode):
 
-bash
-Copy
-Edit
+```bash
 npm run dev
-Access API on http://localhost:8000/api/v1
+```
+Access API on:
+http://localhost:8000/api/v1
 
 Running with Docker
-bash
-Copy
-Edit
+```bash
 docker-compose up --build
+```
 API Endpoints
+```
 Path	Method	Description	Auth Required	Roles Allowed
 /api/v1/auth/register	POST	Register a new user	No	-
 /api/v1/auth/login	POST	Login user	No	-
@@ -102,4 +92,16 @@ Path	Method	Description	Auth Required	Roles Allowed
 /api/v1/applications/:id/apply	POST	Apply to a job (upload resume)	Yes	applicant
 /api/v1/applications/my	GET	List my applications	Yes	applicant
 /api/v1/applications/job/:jobId	GET	List applications for a job	Yes	company
-/api/v1/applications/:id/status	PUT	Update application status (Interview/Hired/etc.)	Yes
+/api/v1/applications/:id/status	PUT	Update application status (Interview/Hired/etc.)	Yes	company
+```
+
+API Documentation (Swagger)
+You can explore the full API documentation and test the endpoints interactively here:
+
+https://jobhub-b68s.onrender.com/api-docs
+
+Notes
+Make sure to set all environment variables correctly before running the application.
+Docker is optional but recommended for easier setup and deployment.
+Email service uses Gmail SMTP, so enable "App Passwords" if you use 2FA.
+Cloudinary is used for secure and scalable resume uploads.
