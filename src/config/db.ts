@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import path from "path";
 import configs from "./config";
 import User from "../models/User.model";
+import Application from "../models/Application.model";
+import Job from "../models/Job.model";
 
 dotenv.config({
     path: path.join(__dirname, "../../.env"),
@@ -17,7 +19,7 @@ const sequelize: Sequelize = new Sequelize({
     username: configFile.username,
     password: configFile.password,
     host: configFile.host,
-    models: [User],
+    models: [User, Application, Job],
     logging: false,
 });
 
