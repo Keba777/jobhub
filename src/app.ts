@@ -7,6 +7,7 @@ import authRouter from "./routes/auth.routes"
 import jobRouter from "./routes/job.routes"
 import applicationRouter from "./routes/application.routes"
 
+
 dotenv.config({
     path: path.join(__dirname, "../.env")
 });
@@ -21,6 +22,7 @@ app.use(cookieParser());
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", jobRouter)
 app.use("/api/v1/applications", applicationRouter)
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 app.get("/", (req: Request, res: Response) => {
