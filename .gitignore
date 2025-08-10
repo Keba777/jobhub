@@ -30,9 +30,6 @@ coverage/
 tmp/
 temp/
 
-# Sequelize migrations & seeders compiled output
-migrations/*.js
-seeders/*.js
 
 # IDE/editor settings
 .vscode/

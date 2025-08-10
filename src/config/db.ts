@@ -2,6 +2,7 @@ import { Sequelize } from "sequelize-typescript";
 import dotenv from "dotenv";
 import path from "path";
 import configs from "./config";
+import User from "../models/User.model";
 
 dotenv.config({
     path: path.join(__dirname, "../../.env"),
@@ -16,7 +17,7 @@ const sequelize: Sequelize = new Sequelize({
     username: configFile.username,
     password: configFile.password,
     host: configFile.host,
-    models: [],
+    models: [User],
     logging: false,
 });
 
